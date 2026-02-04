@@ -1,5 +1,10 @@
 #!/bin/bash
 clear
+mkdir -p /usr/local/sbin/colour
+touch /usr/local/sbin/colour/colour
+touch /usr/local/sbin/colour/bgcolour
+echo "\033[94;1m" > /usr/local/sbin/colour/colour
+echo "\033[44;1m" > /usr/local/sbin/colour/bgcolour
 colour=$(cat /usr/local/sbin/colour/colour)
 bgcolour=$(cat /usr/local/sbin/colour/bgcolour)
 R='\e[1;31m'
