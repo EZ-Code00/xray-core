@@ -1,0 +1,121 @@
+#!/bin/bash
+clear
+colour=$(cat /usr/local/sbin/colour/colour)
+bgcolour=$(cat /usr/local/sbin/colour/bgcolour)
+R='\e[1;31m'
+P='\e[0;35m'
+B='\033[0;36m'
+G='\033[0;32m'
+NC='\e[0m'
+N='\e[0m'
+red='\e[1;31m'
+green='\e[0;32m'
+purple='\e[0;35m'
+orange='\e[0;33m'
+NC='\e[0m'
+# Xray-Core Version
+xrays_path=$(which xray)
+xrays_version=$("$xrays_path" --version 2>&1)
+current_version=$(echo "$xrays_version" | awk '/Xray/{print $2}')
+# / / Ambil Xray Core Version Terbaru
+latest_version="$(curl -s https://api.github.com/repos/XTLS/Xray-core/releases | grep tag_name | sed -E 's/.*"v(.*)".*/\1/' | head -n 1)"
+# / / Installation Xray Core
+xraycore_link="https://github.com/XTLS/Xray-core/releases/download/v$latest_version/Xray-linux-64.zip"
+clear
+echo -e "${colour}╒════════════════════════════════════════════╕\033[0m"
+echo -e " ${bgcolour}               XRAY-CORE CHANGER            \E[0m"
+echo -e "${colour}╘════════════════════════════════════════════╛\033[0m"
+echo -e "
+ ${colour} Current version : ${green}v${current_version} ${NC}
+
+ ${colour}[\033[1;37m01${colour}]${NC}${colour}• \033[1;37m Xray-core MOD v25.10.15-1
+ ${colour}[\033[1;37m02${colour}]${NC}${colour}• \033[1;37m Xray-core MOD v25.10.15-2
+ ${colour}[\033[1;37m03${colour}]${NC}${colour}• \033[1;37m Xray-core MOD v26.2.4-1
+ ${colour}[\033[1;37m04${colour}]${NC}${colour}• \033[1;37m Xray-core v${latest_version} ${green} << Latest ${NC}
+ ${colour}[\033[1;37m05${colour}]${NC}${colour}• \033[1;37m Check Xray-core version
+ ${colour}[\033[1;37m06${colour}]${NC}${colour}• \033[1;37m Back To Main Menu
+
+  ${green}Notes: ${NC}
+ ❇️ Xray-core MOD support custom path / multipath. Only use it if your scripts support."
+echo ""
+echo -e " \033[1;37mPress [ Ctrl+C ] • To-Exit-Script\033[0m"
+echo ""
+read -p " Select From Options [ 1-6 or x ] :  " xcore
+echo -e ""
+[[ -z $xcore ]] && menu
+case $xcore in
+1)
+clear
+if [ -n "$xrays_path" ]; then
+mv $xrays_path $xrays_path.bakk && wget -q -O $xrays_path "https://github.com/EZ-Code00/xray-core/releases/download/Xray-linux-64-v25.10.15/Xray-linux-64-v25.10.15" && chmod 755 $xrays_path && xray version
+sleep 1
+systemctl restart xray
+else
+wget -q -O /usr/local/bin/xray "https://github.com/EZ-Code00/xray-core/releases/download/Xray-linux-64-v25.10.15/Xray-linux-64-v25.10.15" && chmod 755 /usr/local/bin/xray && xray version
+sleep 1
+systemctl restart xray
+fi
+read -p "$( echo -e "Press ${orange}[ ${NC}${green}Enter${NC} ${CYAN}]${NC} Back to menu . . .") "
+xraychange
+;;
+2)
+clear
+if [ -n "$xrays_path" ]; then
+mv $xrays_path $xrays_path.bakk && wget -q -O $xrays_path "https://github.com/EZ-Code00/xray-core/releases/download/Xray-linux-64-v25.10.15-2/Xray-linux-64-v25.10.15-2" && chmod 755 $xrays_path && xray version
+sleep 1
+systemctl restart xray
+else
+wget -q -O /usr/local/bin/xray "https://github.com/EZ-Code00/xray-core/releases/download/Xray-linux-64-v25.10.15-2/Xray-linux-64-v25.10.15-2" && chmod 755 /usr/local/bin/xray && xray version
+sleep 1
+systemctl restart xray
+fi
+read -p "$( echo -e "Press ${orange}[ ${NC}${green}Enter${NC} ${CYAN}]${NC} Back to menu . . .") "
+xraychange
+;;
+3)
+clear
+if [ -n "$xrays_path" ]; then
+mv $xrays_path $xrays_path.bakk && wget -q -O $xrays_path "https://github.com/EZ-Code00/xray-core/releases/download/Xray-linux-64-v26.2.4-1/Xray-linux-64-v26.2.4-1" && chmod 755 $xrays_path && xray version
+sleep 1
+systemctl restart xray
+else
+wget -q -O /usr/local/bin/xray "https://github.com/EZ-Code00/xray-core/releases/download/Xray-linux-64-v26.2.4-1/Xray-linux-64-v26.2.4-1" && chmod 755 /usr/local/bin/xray && xray version
+sleep 1
+systemctl restart xray
+fi
+read -p "$( echo -e "Press ${orange}[ ${NC}${green}Enter${NC} ${CYAN}]${NC} Back to menu . . .") "
+xraychange
+;;
+4)
+clear
+mv $xrays_path $xrays_path.bakk && curl -L https://github.com/XTLS/Xray-core/releases/download/v$latest_version/Xray-linux-64.zip > Xray-linux-64.zip && unzip *.zip && mv xray /usr/local/bin && chmod +x $xrays_path
+sleep 1
+rm *.zip *.dat LICENSE README.md && xray version
+systemctl restart xray
+read -p "$( echo -e "Press ${orange}[ ${NC}${green}Enter${NC} ${CYAN}]${NC} Back to menu . . .") "
+xraychange
+;;
+5)
+clear
+xray version
+echo -e "[ ${green}INFO${NC} ] Back to menu in 5 sec . . . "
+##echo -e "\033[0;32mBack to menu in 5 sec\033[0;32m"
+sleep 5
+xraychange
+;;
+6)
+clear
+menu
+;;
+x)
+clear
+menu
+;;
+*)
+clear
+echo -e "[ ${red}INFO${NC} ] Please enter an correct number . . . "
+#echo -e "\e[1;31m Please enter an correct number\e[1;31m"
+sleep 2
+xraychange
+;;
+esac
