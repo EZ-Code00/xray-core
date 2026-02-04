@@ -1,7 +1,7 @@
 # Install Xray-core Mod
 [ for path /usr/local/bin/xray ]
  ```html
-wget -q -O /usr/bin/xraychange "https://raw.githubusercontent.com/EZ-Code00/xray-core/main/xraychange.sh" && chmod +x /usr/bin/xraychange && xraychange
+wget -q -O /usr/bin/xraychange "https://raw.githubusercontent.com/EZ-Code00/xray-core/main/xraychange" && chmod +x /usr/bin/xraychange && xraychange
   ```
 Type command:
 
