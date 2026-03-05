@@ -16,6 +16,4 @@ Type command:
 ## Description : For VPS only!!!
 
 Xray MOD version
-- v25.10.15-1
-- v25.10.15-2
-- v26.2.4-1
+- v26.2.6-1
