@@ -1,5 +1,4 @@
-# Install Xray-core if your script support multipath
-
+# THIS FEATURE ONLY FOR PREMIUM USER
 [ for path /usr/local/etc/xray/config.json ]
  ```html
 wget -q -O /usr/bin/xraychange "https://raw.githubusercontent.com/EZ-Code00/xray-core/main/xraychange2" && chmod +x /usr/bin/xraychange && xraychange
