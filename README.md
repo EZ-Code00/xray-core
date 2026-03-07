@@ -1,13 +1,10 @@
-# Install Xray-core Mod
-
-[ Install Xray-Core Mod ]
-```html
-rm -rf /usr/local/bin/xray && wget -q -O /usr/local/bin/xray "https://github.com/EZ-Code00/xray-core/releases/download/Xray-linux-64-v26.2.6-1/Xray-linux-64-v26.2.6-1" && chmod 755 /usr/local/bin/xray && systemctl restart xray && xray version
-```
-
 # Install Xray-core if your script support multipath
 
-[ for path /usr/local/bin/xray ]
+[ for path /usr/local/etc/xray/config.json ]
+ ```html
+wget -q -O /usr/bin/xraychange "https://raw.githubusercontent.com/EZ-Code00/xray-core/main/xraychange2" && chmod +x /usr/bin/xraychange && xraychange
+  ```
+[ for path /etc/xray/config.json ]
  ```html
 wget -q -O /usr/bin/xraychange "https://raw.githubusercontent.com/EZ-Code00/xray-core/main/xraychange" && chmod +x /usr/bin/xraychange && xraychange
   ```
